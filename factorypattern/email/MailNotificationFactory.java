@@ -8,18 +8,18 @@ import designpatterns.factorypattern.Notification;
 
 public class MailNotificationFactory extends NotificationMaster{
 	
+	// factory pattern
 	public static Notification getCarier(String Email) throws Exception 
 	{
-		if (Email.contains("gmail"))
+		if (Email.toLowerCase().contains("gmail"))
 			return new Gmail();
-		else if (Email.contains("yahoo"))
+		else if (Email.toLowerCase().contains("yahoo"))
 			return new Yahoo();
 		else throw new Exception();
 	}
 
 	@Override
 	public Notification getDefault(String Method) throws Exception {
-		// TODO Auto-generated method stub
 		return getCarier(Method);
 	}
 

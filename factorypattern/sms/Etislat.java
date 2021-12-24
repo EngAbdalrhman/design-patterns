@@ -1,7 +1,7 @@
 package designpatterns.factorypattern.sms;
 
 import designpatterns.factorypattern.Notification;
-
+// Carrier
 public class Etislat implements Notification {
 
 	public void send() {

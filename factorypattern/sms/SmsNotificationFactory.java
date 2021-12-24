@@ -7,21 +7,23 @@ import designpatterns.factorypattern.NotificationMaster;
 import designpatterns.factorypattern.Notification;
 
 public class SmsNotificationFactory extends NotificationMaster{
-	
+	static Vodafone voda = new Vodafone();
+	static Orange orng = new Orange();
+	static Etislat etis = new Etislat();
+	// factory pattern selected which object should returned
 	public static Notification getCarier(String PhoneNumber) throws Exception 
 	{
 		if (PhoneNumber.startsWith("010"))
-			return new Vodafone();
+			return voda;
 		else if (PhoneNumber.startsWith("012"))
-			return new Orange();
+			return orng;
 		else if (PhoneNumber.startsWith("011"))
-			return new Etislat();
+			return etis;
 		else throw new Exception();
 	}
 
 	@Override
 	public Notification getDefault(String Method) throws Exception {
-		// TODO Auto-generated method stub
 		return getCarier(Method);
 	}
 
